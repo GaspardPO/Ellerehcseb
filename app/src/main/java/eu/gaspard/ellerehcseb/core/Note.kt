@@ -1,16 +1,18 @@
 package eu.gaspard.ellerehcseb.core
 
 enum class Note(val note_as_string: String) {
-    C("c"),
-    Cs("c#"),
-    D("d"),
-    Ds("d#"),
-    E("e"),
-    F("f"),
-    Fs("f#"),
-    G("g"),
-    Gs("g#"),
-    A("a"),
-    As("a#"),
-    B("b")
+    C("C"),
+    Cs("C#"),
+    D("D"),
+    Ds("D#"),
+    E("E"),
+    F("F"),
+    Fs("F#"),
+    G("G"),
+    Gs("G#"),
+    A("A"),
+    As("A#"),
+    B("B")
 }
+
+const val NB_OF_NOTES = 12
