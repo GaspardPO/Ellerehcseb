@@ -5,6 +5,13 @@ Dictionnaire d'accords inversé.
 
 On verra ce que ça donne, le but c'est de donner des notes et d'avoir le nom de l'accords.
 
+Solution envisagée :  
+on génère tous les accords possibles et on voit si c'est dans la liste.
+
+L'autre solution :
+on mets les notes dans l'ordre et on cherche les intervalles ?
+
+
 ### côté APP :
 tout à faire !  
 [] entrer les notes en lettre ?  

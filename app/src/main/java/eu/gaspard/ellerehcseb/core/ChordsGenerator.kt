@@ -4,11 +4,12 @@ class ChordsGenerator {
 
     fun generateAllChords(): List<Chord> {
         val allMajorChords = generateMajorChords()
-        return allMajorChords
+        val allMinorChords = arrayOf(Chord(listOf("a")))
+        return allMajorChords + allMinorChords
     }
 
     private fun generateMajorChords(): List<Chord> {
-        val allMajorChords = Note.values().map { Chord(it.note_as_string.toUpperCase()) }
+        val allMajorChords = Note.values().map { Chord(listOf(it.note_as_string.toUpperCase())) }
         return allMajorChords
     }
 }

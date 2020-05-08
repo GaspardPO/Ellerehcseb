@@ -10,11 +10,17 @@ class ChordsFinderShould{
 
     @Test
     fun return_Major_chords(){
-        assertThat(finder.find(C, E, G)).isEqualTo(Chord("C"))
-        assertThat(finder.find(E, G, B)).isEqualTo(Chord("E"))
-        assertThat(finder.find(D, Fs, A)).isEqualTo(Chord("D"))
-        assertThat(finder.find(F, A, C)).isEqualTo(Chord("F"))
-        assertThat(finder.find(G, B, D)).isEqualTo(Chord("G"))
+        assertThat(finder.find(C, E, G).toString()).isEqualTo("C")
+        assertThat(finder.find(E, G, B).toString()).isEqualTo("E")
+        assertThat(finder.find(D, Fs, A).toString()).isEqualTo("D")
+        assertThat(finder.find(F, A, C).toString()).isEqualTo("F")
+        assertThat(finder.find(G, B, D).toString()).isEqualTo("G")
+//        assertThat(finder.find(A, Cs, E).toString()).isEqualTo("A")
+    }
+
+    @Test
+    fun return_Minor_chords(){
+        assertThat(finder.find(A, C, E).toString()).isEqualTo("a")
     }
 
 }
