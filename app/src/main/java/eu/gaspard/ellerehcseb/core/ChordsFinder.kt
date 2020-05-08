@@ -1,11 +1,8 @@
 package eu.gaspard.ellerehcseb.core
 
-class ChordsFinder {
+class ChordsFinder(private val allChords: List<Chord>) {
     fun find(vararg notes : Note): Chord {
-        if(notes.contains(Note.B)){
-            return Chord("G")
-        }
-        return Chord("C")
+        return allChords.find{it.containsNote(notes[0])}!!
     }
 
 }
