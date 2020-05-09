@@ -36,7 +36,7 @@ class ChordsFinderShould {
 
     @Test
     fun should_fail() {
-        assertThat(true).isFalse
+        assertThat(true).isFalse()
     }
 
 }
