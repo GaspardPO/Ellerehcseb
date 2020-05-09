@@ -4,10 +4,10 @@ import eu.gaspard.ellerehcseb.core.Note.*
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-internal class ChordTest {
+internal class ChordShould {
 
     @Test
-    fun should_create_major_chord() {
+    fun create_major_chord() {
         val cMajor = createMajorChord(C)
         assertThat(cMajor.notes).containsOnly(
             C,
@@ -18,7 +18,7 @@ internal class ChordTest {
     }
 
     @Test
-    fun should_create_major_chord_when_end_of_scale() {
+    fun create_major_chord_when_end_of_scale() {
         val bMajor = createMajorChord(B)
         assertThat(bMajor.notes).containsOnly(
             B,
@@ -29,7 +29,7 @@ internal class ChordTest {
     }
 
     @Test
-    fun should_create_minor_chord() {
+    fun create_minor_chord() {
         val cMinor = createMinorChord(C)
         assertThat(cMinor.notes).containsOnly(
             C,
@@ -40,7 +40,7 @@ internal class ChordTest {
     }
 
     @Test
-    fun should_create_minor_chord_when_end_of_scale() {
+    fun create_minor_chord_when_end_of_scale() {
         val aMinor = createMinorChord(A)
         assertThat(aMinor.notes).containsOnly(
             A,

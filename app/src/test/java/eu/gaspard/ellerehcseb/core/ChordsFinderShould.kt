@@ -33,10 +33,4 @@ class ChordsFinderShould {
         assertThat(finder.find(E, A, C).name).isEqualTo("Am")
         assertThat(finder.find(E, C, A).name).isEqualTo("Am")
     }
-
-    @Test
-    fun should_fail() {
-        assertThat(true).isFalse()
-    }
-
 }
