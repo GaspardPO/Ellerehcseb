@@ -1,6 +1,10 @@
 package eu.gaspard.ellerehcseb.core
 
-data class Chord(val notes: List<Note>, val name: String = notes[0].note_as_string)
+data class Chord(val notes: List<Note>, val name: String = notes[0].note_as_string){
+    fun containsExactly(notes: Array<out Note>): Boolean {
+        return this.notes.toSortedSet().equals(notes.toSet())
+    }
+}
 
 fun createMajorChord(root: Note): Chord {
     val root_ordinal = root.ordinal

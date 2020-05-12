@@ -16,7 +16,7 @@ internal class AndroidChordFinderTest{
         val chordsFinder = mockk<ChordsFinder>()
         val chord = mockk<Chord>()
         every { chord.name } returns "C"
-        every { chordsFinder.find(C, E, G) } returns chord
+        every { chordsFinder.findExactly(C, E, G) } returns chord
 
         val androidAdapter = AndroidChordFinder(chordsFinder)
 
@@ -30,7 +30,7 @@ internal class AndroidChordFinderTest{
         val chordsFinder = mockk<ChordsFinder>()
         val chord = mockk<Chord>()
         every { chord.name } returns "Am"
-        every { chordsFinder.find(C, E, A) } returns chord
+        every { chordsFinder.findExactly(C, E, A) } returns chord
 
         val androidAdapter = AndroidChordFinder(chordsFinder)
 
@@ -44,7 +44,7 @@ internal class AndroidChordFinderTest{
         val chordsFinder = mockk<ChordsFinder>()
         val chord = mockk<Chord>()
         every { chord.name } returns "Am"
-        every { chordsFinder.find(C, E, A) } returns chord
+        every { chordsFinder.findExactly(C, E, A) } returns chord
 
         val androidAdapter = AndroidChordFinder(chordsFinder)
 
@@ -59,7 +59,7 @@ internal class AndroidChordFinderTest{
         val chordsFinder = mockk<ChordsFinder>()
         val chord = mockk<Chord>()
         every { chord.name } returns "Am"
-        every { chordsFinder.find(C, E, A) } returns chord
+        every { chordsFinder.findExactly(C, E, A) } returns chord
 
         val androidAdapter = AndroidChordFinder(chordsFinder)
 
@@ -73,12 +73,24 @@ internal class AndroidChordFinderTest{
         val chordsFinder = mockk<ChordsFinder>()
         val chord = mockk<Chord>()
         every { chord.name } returns "A#m"
-        every { chordsFinder.find(Cs, F, As) } returns chord
+        every { chordsFinder.findExactly(Cs, F, As) } returns chord
 
         val androidAdapter = AndroidChordFinder(chordsFinder)
 
         val string = androidAdapter.findChordFor("C#fa#")
 
         assertThat(string).isEqualTo("A#m")
+    }
+
+    @Test
+    fun should_call_return_nop_when_finder_found_nothing() {
+        val chordsFinder = mockk<ChordsFinder>()
+        every { chordsFinder.findExactly(Cs, F, As) } returns null
+
+        val androidAdapter = AndroidChordFinder(chordsFinder)
+
+        val string = androidAdapter.findChordFor("C#fa#")
+
+        assertThat(string).isEqualTo("nop")
     }
 }

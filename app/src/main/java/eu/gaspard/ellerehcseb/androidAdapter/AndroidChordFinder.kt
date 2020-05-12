@@ -13,8 +13,8 @@ class AndroidChordFinder(private val chordsFinder: ChordsFinder = ChordsFinder(C
             .map(::getNotefromString)
             .toTypedArray()
 
-        val chord: Chord = chordsFinder.find(*notes)
+        val chord: Chord? = chordsFinder.findExactly(*notes)
 
-        return chord.name
+        return chord?.name ?: "nop"
     }
 }
