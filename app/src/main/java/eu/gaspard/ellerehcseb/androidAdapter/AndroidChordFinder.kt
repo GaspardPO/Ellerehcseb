@@ -1,29 +1,20 @@
 package eu.gaspard.ellerehcseb.androidAdapter
 
-import eu.gaspard.ellerehcseb.core.Chord
-import eu.gaspard.ellerehcseb.core.ChordsFinder
-import eu.gaspard.ellerehcseb.core.ChordsGenerator
-import eu.gaspard.ellerehcseb.core.Note
+import eu.gaspard.ellerehcseb.core.*
 
 // TODO : dependecy injection à faire c'est tout cracra.
-class AndroidChordFinder(val chordsFinder: ChordsFinder = ChordsFinder(ChordsGenerator().generateAllChords())) {
+class AndroidChordFinder(private val chordsFinder: ChordsFinder = ChordsFinder(ChordsGenerator().generateAllChords())) {
+    private val VALID_CHARACTERS = "[a-gA-G]#?".toRegex()
 
     fun findChordFor(inputString: String): String {
-
-        val notes: Array<Note> = inputString.split("")
-            .map(String::toUpperCase)
-            .map { createNoteFromString(it) }
-            .filterNotNull()
+        val notes: Array<Note> = VALID_CHARACTERS
+            .findAll(inputString)
+            .toList().map { it.value }
+            .map(::getNotefromString)
             .toTypedArray()
 
         val chord: Chord = chordsFinder.find(*notes)
 
         return chord.name
-    }
-
-    private fun createNoteFromString(it: String): Note? = try {
-        Note.valueOf(it)
-    } catch (e: IllegalArgumentException) {
-        null
     }
 }

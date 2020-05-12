@@ -37,4 +37,18 @@ class UITest {
         onView(withId(R.id.output_chord))
             .check(matches(withText("C")))
     }
+
+    @Test
+    fun checkButton_with_special_characters() {
+        onView(withId(R.id.input_notes))
+            .perform(typeText("c#g#f"))
+
+        onView(withId(R.id.input_notes)).perform(closeSoftKeyboard())
+
+        onView(withId(R.id.button))
+            .perform(click())
+
+        onView(withId(R.id.output_chord))
+            .check(matches(withText("C#")))
+    }
 }

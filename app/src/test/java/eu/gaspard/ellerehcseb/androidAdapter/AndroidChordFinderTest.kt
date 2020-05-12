@@ -68,4 +68,17 @@ internal class AndroidChordFinderTest{
         assertThat(string).isEqualTo("Am")
     }
 
+    @Test
+    fun should_call_chords_finder_with_sharp() {
+        val chordsFinder = mockk<ChordsFinder>()
+        val chord = mockk<Chord>()
+        every { chord.name } returns "A#m"
+        every { chordsFinder.find(Cs, F, As) } returns chord
+
+        val androidAdapter = AndroidChordFinder(chordsFinder)
+
+        val string = androidAdapter.findChordFor("C#fa#")
+
+        assertThat(string).isEqualTo("A#m")
+    }
 }
