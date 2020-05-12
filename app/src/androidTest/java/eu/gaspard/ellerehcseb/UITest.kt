@@ -1,7 +1,8 @@
 package eu.gaspard.ellerehcseb
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -20,34 +21,20 @@ class UITest {
     @get:Rule
     val activityRule = ActivityTestRule(MainActivity::class.java)
 
+    // TODO : dependency injection with koin
+    // and mock with mockito ?
+
     @Test
     fun checkButton() {
-        onView(withId(R.id.text))
-            .check(matches(withText("rien")))
-        onView(withId(R.id.button))
-            .check(matches(withText("Button")))
+       onView(withId(R.id.input_notes))
+            .perform(typeText("C, E, G"))
 
-        onView(withId(R.id.button)).perform(click())
+        onView(withId(R.id.input_notes)).perform(closeSoftKeyboard())
 
-        onView(withId(R.id.text))
-            .check(matches(withText("lalalala")))
         onView(withId(R.id.button))
-            .check(matches(withText("lalalala")))
+            .perform(click())
+
+        onView(withId(R.id.output_chord))
+            .check(matches(withText("C")))
     }
-
-    @Test
-    fun shouldFail() {
-        onView(withId(R.id.text))
-            .check(matches(withText("rien")))
-        onView(withId(R.id.button))
-            .check(matches(withText("Button")))
-
-        onView(withId(R.id.button)).perform(click())
-
-        onView(withId(R.id.text))
-            .check(matches(withText("Nop")))
-        onView(withId(R.id.button))
-            .check(matches(withText("Nop")))
-    }
-
 }

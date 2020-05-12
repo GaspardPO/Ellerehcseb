@@ -2,6 +2,7 @@ package eu.gaspard.ellerehcseb
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import eu.gaspard.ellerehcseb.androidAdapter.AndroidChordFinder
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,8 +12,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         button.setOnClickListener {
-            text.text = "lalalala"
-            button.text = "lalalala"
-        }
+            // TODO : dependency injection / koin ?
+            output_chord.text = AndroidChordFinder().findChordFor(input_notes.text.toString())
+       }
     }
 }
