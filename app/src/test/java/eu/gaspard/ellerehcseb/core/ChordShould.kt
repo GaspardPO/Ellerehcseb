@@ -50,4 +50,28 @@ internal class ChordShould {
         assertThat(aMinor.name).isEqualTo("Am")
     }
 
+    @Test
+    fun create_seventh_chord() {
+        val cMajor = createSeventhChord(C)
+        assertThat(cMajor.notes).containsOnly(
+            C,
+            E,
+            G,
+            As
+        )
+        assertThat(cMajor.name).isEqualTo("C7")
+    }
+
+    @Test
+    fun create_seventh_chord_when_end_of_scale() {
+        val bMajor = createSeventhChord(B)
+        assertThat(bMajor.notes).containsOnly(
+            B,
+            Ds,
+            Fs,
+            A
+        )
+        assertThat(bMajor.name).isEqualTo("B7")
+    }
+
 }

@@ -7,7 +7,8 @@ internal class ChordsGeneratorShould{
 
     @Test
     fun generate_all_chords(){
-        val nb_of_differents_types_of_chords = 2 // minor, major
-        assertThat(ChordsGenerator().generateAllChords()).hasSize(NB_OF_NOTES* nb_of_differents_types_of_chords)
+        val nb_of_differents_types_of_chords = 3 // minor, major, seventh
+        val nb_of_notes = 12
+        assertThat(ChordsGenerator().generateAllChords()).hasSize(nb_of_notes * nb_of_differents_types_of_chords)
     }
 }

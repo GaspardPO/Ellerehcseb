@@ -14,10 +14,14 @@ enum class Note(val note_as_string: String) {
     Gs("G#"),
     A("A"),
     As("A#"),
-    B("B")
+    B("B");
+
+    fun noteAfterInterval(interval: Int): Note {
+        return values()[(this.ordinal + interval).rem(NB_OF_NOTES)]
+    }
 }
 
-const val NB_OF_NOTES = 12
+private const val NB_OF_NOTES = 12
 
 fun getNotefromString(string : String):Note =
     Note.valueOf(string.toLowerCase(Locale.ROOT).capitalize().replace("#", "s"))
