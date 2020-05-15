@@ -12,5 +12,5 @@ abstract class Chord(val notes: List<Note>, val name: String = notes[0].note_as_
 class MajorChord(root: Note) : Chord(root, intArrayOf(0, 4, 7))
 class MinorChord(root: Note) : Chord(root, intArrayOf(0, 3, 7), "m")
 class SeventhChord(root: Note) : Chord(root, intArrayOf(0, 4, 7, 10), "7")
-
-
+class DiminishedChord(root: Note) : Chord(root, intArrayOf(0, 3, 6), "dim")
+class DiminishedSeventhChord(root: Note) : Chord(root, intArrayOf(0, 3, 6, 9), "dim7")

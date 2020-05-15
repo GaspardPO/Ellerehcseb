@@ -32,7 +32,10 @@ tout à faire !
 ### côté métier :
 - [x] accords majeurs parfaits  
 - [x] accords mineurs parfaits  
-- [x] renversement  
+- [x] accords 7eme
+- [x] accord diminués
+- [x] accord diminués 7.
+- [x] renversement
 ...
 - [ ] accords qui contiennent les notes (+ d'autres)  
 - [ ] accords qui contiennent les notes uniquement les notes  
