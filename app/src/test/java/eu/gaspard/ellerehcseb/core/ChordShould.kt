@@ -8,7 +8,7 @@ internal class ChordShould {
 
     @Test
     fun create_major_chord() {
-        val cMajor = createMajorChord(C)
+        val cMajor = MajorChord(C)
         assertThat(cMajor.notes).containsOnly(
             C,
             E,
@@ -19,7 +19,7 @@ internal class ChordShould {
 
     @Test
     fun create_major_chord_when_end_of_scale() {
-        val bMajor = createMajorChord(B)
+        val bMajor = MajorChord(B)
         assertThat(bMajor.notes).containsOnly(
             B,
             Ds,
@@ -30,7 +30,7 @@ internal class ChordShould {
 
     @Test
     fun create_minor_chord() {
-        val cMinor = createMinorChord(C)
+        val cMinor = MinorChord(C)
         assertThat(cMinor.notes).containsOnly(
             C,
             Ds,
@@ -41,7 +41,7 @@ internal class ChordShould {
 
     @Test
     fun create_minor_chord_when_end_of_scale() {
-        val aMinor = createMinorChord(A)
+        val aMinor = MinorChord(A)
         assertThat(aMinor.notes).containsOnly(
             A,
             C,
@@ -52,7 +52,7 @@ internal class ChordShould {
 
     @Test
     fun create_seventh_chord() {
-        val cMajor = createSeventhChord(C)
+        val cMajor = SeventhChord(C)
         assertThat(cMajor.notes).containsOnly(
             C,
             E,
@@ -64,7 +64,7 @@ internal class ChordShould {
 
     @Test
     fun create_seventh_chord_when_end_of_scale() {
-        val bMajor = createSeventhChord(B)
+        val bMajor = SeventhChord(B)
         assertThat(bMajor.notes).containsOnly(
             B,
             Ds,
