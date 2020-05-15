@@ -1,49 +1,55 @@
 # Ellerehcseb
 
-Dictionnaire d'accords inversé.
+Chords Finder
 
-On verra ce que ça donne, le but c'est de donner des notes et d'avoir le nom de l'accords.
+an application where I can enter notes, and it give me the name of the chord:
+C, D#, F#, A  -> Cdim7
 
-Solution envisagée :  
-on génère tous les accords possibles et on voit si c'est dans la liste.
+Algo:
+- all chords are generated,
+- then we search in the list for the chord with the same notes as input.
 
-L'autre solution :
-on mets les notes dans l'ordre et on cherche les intervalles ?
+## Archi
+[core folder](app/src/main/java/eu/gaspard/ellerehcseb/core): all "business" about music.  
+[androidAdapter](app/src/main/java/eu/gaspard/ellerehcseb/androidAdapter) convert String to core business.  
+only one activity.
 
+### App, GUI, UX :
+- [x] input: note as character
+- [ ] input: note as button
+- [ ] input: note on piano keyboard
+- [ ] input: note on piano keyboard
+- [ ] input: note on guitar/uku/banjo/... neck
+- [x] output: chord name
+- [ ] output: chord info (name, interval, third,
+- [x] uses character (A, B, C ...)
+- [x] uses # or s for sharp
+- [x] uses b for flat
+- [ ] uses notes (Do, Ré, Mi ...)
 
-### côté APP :
-tout à faire !  
-- [x] entrer les notes en lettre
-- [ ] entrer les notes sur des boutons ?  
-- [ ] entrer les notes sur un clavier de piano ?  
-- [ ] entrer les notes sur un manche d'un truc ?
-- [x] sortir le nom de l'accord
-- [ ] sortir les infos de l'accord (nom, type, notes ...)
-- [x] utiliser des lettres (A, B, C ...)
-- [ ] utiliser des notes (Do, Ré, Mi ...)
+### infra:
+- [x] Continuous Unit Tests
+- [x] Continuous End-to-End Tests
+- [ ] UI Test using mock
+- [ ] build apk
+- [ ] deploy on store?
+- [ ] dependecy injection: [koin?](https://insert-koin.io/)
 
-### infra :
-- [x] automatisation tests unitaires  
-- [x] automatisation tests fonctionnels end to end  
-- [ ] automatisation tests UI avec mock du métier  
-- [ ] automatisation build apk  
-- [ ] automatisation build store ?
-
-### côté métier :
-- [x] accords majeurs parfaits  
-- [x] accords mineurs parfaits  
-- [x] accords 7eme
-- [x] accord diminués
-- [x] accord diminués 7.
-- [x] renversement
+### business core:
+- [x] perfect major
+- [x] perfect minor
+- [x] (dominant) 7th
+- [x] diminished
+- [x] diminished seventh  
 ...
-- [ ] accords qui contiennent les notes (+ d'autres)  
-- [ ] accords qui contiennent les notes uniquement les notes  
-- [ ] accords avec 2 fois la même note  
-...  
-- [ ] correspondance dièse bémol (Eb == D#) (instruments frettés)
-- [ ] erreurs si accords qui n'existent pas.
+- [x] Don't use the first notes as root (inversion).
+- [x] chords with exactly the given notes
+- [ ] chords with other notes (not only the ones given as input)
+- [ ] chords with other notes, using the first as root?  
+...
+- [ ] sharp/flat (using fretted instrument, D# == Eb)
+- [x] error when chord not found
 
-###  inverser
-partir de l'accord et donner les notes ?
+###  Chord to notes
+From the chord, give the notes.
 
