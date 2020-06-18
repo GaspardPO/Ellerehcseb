@@ -10,6 +10,8 @@ internal class NoteTest {
     fun should_create_note_from_string() {
         assertThat(C).isEqualTo(getNotefromString("C"))
         assertThat(C).isEqualTo(getNotefromString("c"))
+        assertThat(B).isEqualTo(getNotefromString("B"))
+        assertThat(B).isEqualTo(getNotefromString("b"))
     }
 
     @Test
@@ -18,6 +20,12 @@ internal class NoteTest {
         assertThat(Cs).isEqualTo(getNotefromString("C#"))
         assertThat(Cs).isEqualTo(getNotefromString("c#"))
         assertThat(Cs).isEqualTo(getNotefromString("CS"))
+    }
+
+    @Test
+    fun should_create_note_from_string_for_flat() {
+        assertThat(Cs).isEqualTo(getNotefromString("Db"))
+        assertThat(As).isEqualTo(getNotefromString("Bb"))
     }
 
     @Test

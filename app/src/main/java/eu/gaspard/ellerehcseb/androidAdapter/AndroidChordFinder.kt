@@ -4,14 +4,8 @@ import eu.gaspard.ellerehcseb.core.*
 
 // TODO : dependecy injection à faire c'est tout cracra.
 class AndroidChordFinder(private val chordsFinder: ChordsFinder = ChordsFinder(ChordsGenerator().generateAllChords())) {
-    private val VALID_CHARACTERS = "[a-gA-G]#?".toRegex()
-
     fun findChordFor(inputString: String): String {
-        val notes: Array<Note> = VALID_CHARACTERS
-            .findAll(inputString)
-            .toList().map { it.value }
-            .map(::getNotefromString)
-            .toTypedArray()
+        val notes: Array<Note> = inputString.asNotes()
 
         val chord: Chord? = chordsFinder.findExactly(*notes)
 

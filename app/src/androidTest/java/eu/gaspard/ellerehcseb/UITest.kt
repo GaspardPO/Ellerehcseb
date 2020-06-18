@@ -41,7 +41,7 @@ class UITest {
     @Test
     fun checkButton_with_special_characters() {
         onView(withId(R.id.input_notes))
-            .perform(typeText("c#g#f"))
+            .perform(typeText("c#,g#,f"))
 
         onView(withId(R.id.input_notes)).perform(closeSoftKeyboard())
 

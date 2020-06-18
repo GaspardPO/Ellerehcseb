@@ -20,7 +20,7 @@ internal class AndroidChordFinderTest{
 
         val androidAdapter = AndroidChordFinder(chordsFinder)
 
-        val string = androidAdapter.findChordFor("CEG")
+        val string = androidAdapter.findChordFor("C,E,G")
 
         assertThat(string).isEqualTo("C")
     }
@@ -48,7 +48,7 @@ internal class AndroidChordFinderTest{
 
         val androidAdapter = AndroidChordFinder(chordsFinder)
 
-        val string = androidAdapter.findChordFor("cea")
+        val string = androidAdapter.findChordFor("c e a")
 
         assertThat(string).isEqualTo("Am")
     }
@@ -77,7 +77,7 @@ internal class AndroidChordFinderTest{
 
         val androidAdapter = AndroidChordFinder(chordsFinder)
 
-        val string = androidAdapter.findChordFor("C#fa#")
+        val string = androidAdapter.findChordFor("C#,f,a#")
 
         assertThat(string).isEqualTo("A#m")
     }
@@ -89,7 +89,7 @@ internal class AndroidChordFinderTest{
 
         val androidAdapter = AndroidChordFinder(chordsFinder)
 
-        val string = androidAdapter.findChordFor("C#fa#")
+        val string = androidAdapter.findChordFor("C#,f,a#")
 
         assertThat(string).isEqualTo("nop")
     }

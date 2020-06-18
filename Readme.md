@@ -22,6 +22,7 @@ only one activity.
 - [ ] input: note on guitar/uku/banjo/... neck
 - [x] output: chord name
 - [ ] output: chord info (name, interval, third,
+- [ ] display the chord name using b and # ?
 - [x] uses character (A, B, C ...)
 - [x] uses # or s for sharp
 - [x] uses b for flat
@@ -47,7 +48,7 @@ only one activity.
 - [ ] chords with other notes (not only the ones given as input)
 - [ ] chords with other notes, using the first as root?  
 ...
-- [ ] sharp/flat (using fretted instrument, D# == Eb)
+- [x] sharp/flat (using fretted instrument, D# == Eb)
 - [x] error when chord not found
 
 ###  Chord to notes

@@ -23,5 +23,9 @@ enum class Note(val note_as_string: String) {
 
 private const val NB_OF_NOTES = 12
 
-fun getNotefromString(string : String):Note =
-    Note.valueOf(string.toLowerCase(Locale.ROOT).capitalize().replace("#", "s"))
+fun getNotefromString(string : String):Note {
+    if(string.length == 2 && string[1] == 'b'){
+        return Note.valueOf(string[0].toUpperCase().toString()).noteAfterInterval(-1)
+    }
+    return Note.valueOf(string.toLowerCase(Locale.ROOT).capitalize().replace("#", "s"))
+}
