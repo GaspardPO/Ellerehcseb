@@ -2,9 +2,9 @@ name: Android CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -29,5 +29,3 @@ jobs:
         with:
           api-level: 26
           script: ./gradlew connectedAndroidTest --stacktrace
-
-
