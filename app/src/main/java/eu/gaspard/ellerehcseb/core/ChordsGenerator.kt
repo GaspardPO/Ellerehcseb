@@ -7,7 +7,11 @@ class ChordsGenerator {
             MajorChord(it),
             MinorChord(it),
             SeventhChord(it),
+            MajorSeventhChord(it),
+            MinorSeventhChord(it),
+            MinorWithMajorSeventhChord(it),
             DiminishedChord(it),
-            DiminishedSeventhChord(it)
+            DiminishedSeventhChord(it),
+            AugmentedChord(it)
         ) }
 }

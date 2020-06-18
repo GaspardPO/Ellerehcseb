@@ -39,7 +39,7 @@ only one activity.
 ### business core:
 - [x] perfect major
 - [x] perfect minor
-- [x] (dominant) 7th
+- [x] (dominant) 7th : maj7, min7, m(maj7)
 - [x] diminished
 - [x] diminished seventh  
 ...
@@ -50,6 +50,8 @@ only one activity.
 ...
 - [x] sharp/flat (using fretted instrument, D# == Eb)
 - [x] error when chord not found
+...
+- [ ] use a csv config file with the chords list ?
 
 ###  Chord to notes
 From the chord, give the notes.

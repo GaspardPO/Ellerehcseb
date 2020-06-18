@@ -11,10 +11,7 @@ internal class ChordShould {
         val cMajor = MajorChord(C)
         assertThat(cMajor.notes).containsOnly(C, E, G)
         assertThat(cMajor.name).isEqualTo("C")
-    }
 
-    @Test
-    fun create_major_chord_when_end_of_scale() {
         val bMajor = MajorChord(B)
         assertThat(bMajor.notes).containsOnly(B, Ds, Fs)
         assertThat(bMajor.name).isEqualTo("B")
@@ -25,10 +22,7 @@ internal class ChordShould {
         val cMinor = MinorChord(C)
         assertThat(cMinor.notes).containsOnly(C, Ds, G)
         assertThat(cMinor.name).isEqualTo("Cm")
-    }
 
-    @Test
-    fun create_minor_chord_when_end_of_scale() {
         val aMinor = MinorChord(A)
         assertThat(aMinor.notes).containsOnly(A, C, E)
         assertThat(aMinor.name).isEqualTo("Am")
@@ -36,16 +30,26 @@ internal class ChordShould {
 
     @Test
     fun create_seventh_chord() {
-        val cMajor = SeventhChord(C)
-        assertThat(cMajor.notes).containsOnly(C, E, G, As)
-        assertThat(cMajor.name).isEqualTo("C7")
-    }
+        val c7 = SeventhChord(C)
+        assertThat(c7.notes).containsOnly(C, E, G, As)
+        assertThat(c7.name).isEqualTo("C7")
 
-    @Test
-    fun create_seventh_chord_when_end_of_scale() {
-        val bMajor = SeventhChord(B)
-        assertThat(bMajor.notes).containsOnly(B, Ds, Fs, A)
-        assertThat(bMajor.name).isEqualTo("B7")
+
+        val b7 = SeventhChord(B)
+        assertThat(b7.notes).containsOnly(B, Ds, Fs, A)
+        assertThat(b7.name).isEqualTo("B7")
+
+        val cMajor7 = MajorSeventhChord(C)
+        assertThat(cMajor7.notes).containsOnly(C, E, G, B)
+        assertThat(cMajor7.name).isEqualTo("Cmaj7")
+
+        val cm7 = MinorSeventhChord(C)
+        assertThat(cm7.notes).containsOnly(C, Ds, G, As)
+        assertThat(cm7.name).isEqualTo("Cm7")
+
+        val cmMaj7 = MinorWithMajorSeventhChord(C)
+        assertThat(cmMaj7.notes).containsOnly(C, Ds, G, B)
+        assertThat(cmMaj7.name).isEqualTo("Cm(maj7)")
     }
 
     @Test
@@ -57,7 +61,9 @@ internal class ChordShould {
         val CDim7 = DiminishedSeventhChord(C)
         assertThat(CDim7.notes).containsOnly(C, Ds, Fs, A)
         assertThat(CDim7.name).isEqualTo("Cdim7")
+
+        val CAug = AugmentedChord(C)
+        assertThat(CAug.notes).containsOnly(C, E, Gs)
+        assertThat(CAug.name).isEqualTo("Caug")
     }
-
-
 }
